@@ -2,7 +2,6 @@ import { useLoaderData } from 'react-router-dom';
 import { formatPrice, customFetch, generateAmountOptions } from '../utils';
 import { Link } from 'react-router-dom';
 import { useMemo, useState } from 'react';
-import { useCallback } from 'react';
 
 export const loader = async ({ params }) => {
   const response = await customFetch(`/products/${params.id}`);
@@ -13,7 +12,7 @@ const SingleProduct = () => {
   const { product } = useLoaderData();
   const { image, title, price, description, colors, company } =
     product.attributes;
-  const dollarsAmount = formatPrice(price);
+
   const [productColor, setProductColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
@@ -24,6 +23,8 @@ const SingleProduct = () => {
   const generatedOptions = useMemo(() => {
     return generateAmountOptions(20);
   }, []);
+
+  const dollarsAmount = useMemo(() => formatPrice(price), []);
 
   return (
     <section>
