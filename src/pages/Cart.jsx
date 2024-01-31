@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { CartItemsList, SectionTitle, CartTotals } from '../components';
 
 const Cart = () => {
-  const user = null;
+  const user = useSelector((store) => store.userState.user);
   const numItemsCart = useSelector((store) => store.cartState.numItemsCart);
 
   if (numItemsCart === 0) {
