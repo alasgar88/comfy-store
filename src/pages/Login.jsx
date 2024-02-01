@@ -19,6 +19,7 @@ export const action =
       const errorMessage =
         error?.response?.data?.error?.message ||
         'please double check you credentials';
+      toast.error(errorMessage);
       return null;
     }
   };
