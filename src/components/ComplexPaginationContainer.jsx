@@ -46,7 +46,7 @@ const ComplexPaginationContainer = () => {
     // dots
     if (page < pageCount - 1) {
       pageButtons.push(
-        <button className='join-item btn btn-xs sm:btn-md' key='dots-1'>
+        <button className='join-item btn btn-xs sm:btn-md' key='dots-2'>
           ...
         </button>
       );
